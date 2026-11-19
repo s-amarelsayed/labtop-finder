@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Favorites | Student Laptop Finder</title>
+  <link rel="stylesheet" href="dist/output.css">
+  <script type="module" src="src/js/favorites.js"></script>
+</head>
+<body>
+  <header id="site-header"></header>
+  <main id="main" class="page-width pb-12">
+    <header class="py-8 lg:py-10">
+      <h1 class="page-title">My favorites</h1>
+      <p class="mt-3 text-muted">Review the laptops you saved and compare your shortlist.</p>
+    </header>
+    <div id="loading" role="status"></div>
+    <div id="content" hidden>
+      <dl class="panel grid gap-4 p-5 sm:grid-cols-3 sm:gap-6">
+        <div><dt class="text-sm text-muted">Saved laptops</dt><dd id="saved-count" class="mt-1 text-2xl font-bold"></dd></div>
+        <div><dt class="text-sm text-muted">Total price</dt><dd id="total" class="mt-1 text-2xl font-bold"></dd></div>
+        <div><dt class="text-sm text-muted">Average price</dt><dd id="average" class="mt-1 text-2xl font-bold"></dd></div>
+      </dl>
+      <div id="saved-actions" class="my-5 flex flex-wrap items-center justify-between gap-3">
+        <a class="btn-action" href="compare.html">Compare favorites</a>
+        <button type="button" class="btn-secondary" id="clear">Clear all favorites</button>
+      </div>
+      <div id="cards" class="card-grid"></div>
+      <div class="panel mt-5 p-7" id="empty" hidden>
+        <h2 class="text-xl font-bold">No saved laptops yet</h2>
+        <p class="mt-2 mb-4 text-muted">Use Save on any laptop to keep it here.</p>
+        <a href="laptops.html" class="btn-action">Browse catalogue</a>
+      </div>
+    </div>
+  </main>
+  <footer id="site-footer" class="mt-auto border-t border-line bg-card"></footer>
+</body>
+</html>

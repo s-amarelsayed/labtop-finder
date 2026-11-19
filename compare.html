@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Compare | Student Laptop Finder</title>
+  <link rel="stylesheet" href="dist/output.css">
+  <script type="module" src="src/js/compare-page.js"></script>
+</head>
+<body>
+  <header id="site-header"></header>
+  <main id="main" class="page-width pb-12">
+    <header class="py-8 lg:py-10">
+      <h1 class="page-title">Compare laptops</h1>
+      <p class="mt-3 text-muted">Choose two to four favorites to see their specifications side by side.</p>
+    </header>
+    <div id="loading" role="status"></div>
+    <div id="content" hidden>
+      <div id="empty" class="panel p-7" hidden>
+        <h2 class="text-xl font-bold">Start with your favorites</h2>
+        <p class="mt-2 mb-4 text-muted">Save at least two laptops from the catalogue to compare them here.</p>
+        <a href="laptops.html" class="btn-action">Browse catalogue</a>
+      </div>
+      <div id="compare-content">
+        <section class="panel p-5">
+          <div class="mb-3 flex flex-wrap items-center justify-between gap-2">
+            <h2 class="text-xl font-bold" id="picker-heading">Your favorites</h2>
+            <span class="text-sm font-semibold text-accent" id="selected-count" role="status"></span>
+          </div>
+          <div role="group" aria-labelledby="picker-heading" id="choices" class="grid gap-2 md:grid-cols-2 lg:grid-cols-3"></div>
+          <p class="mt-3 text-sm font-semibold text-accent empty:hidden" id="compare-message" role="status"></p>
+        </section>
+        <section class="mt-7" id="comparison" aria-label="Compared specifications"></section>
+      </div>
+    </div>
+  </main>
+  <footer id="site-footer" class="mt-auto border-t border-line bg-card"></footer>
+</body>
+</html>

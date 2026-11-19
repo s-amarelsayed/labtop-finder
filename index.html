@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home | Student Laptop Finder</title>
+  <link rel="stylesheet" href="dist/output.css">
+  <script type="module" src="src/js/home.js"></script>
+</head>
+<body>
+  <header id="site-header"></header>
+  <main id="main" class="page-width pb-12">
+    <section class="grid items-center gap-7 py-8 md:grid-cols-2 md:gap-8 lg:gap-14 lg:py-12">
+      <div>
+        <h1 class="max-w-xl text-5xl leading-[1.02] font-bold tracking-[-0.055em] sm:text-6xl lg:text-7xl">
+          Find your<br><span class="text-accent">campus laptop.</span>
+        </h1>
+        <p class="mt-5 max-w-md text-base leading-relaxed text-muted sm:text-lg">
+          From lecture notes to late-night projects, find a laptop that fits your workload and your budget.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a class="btn-action" href="laptops.html">Browse catalogue</a>
+          <a class="btn-secondary" href="favorites.html">My favorites</a>
+        </div>
+      </div>
+      <img src="assets/study-desk.webp" alt="An open laptop and a notebook on a sunlit study desk"
+           fetchpriority="high" width="1200" height="800" class="aspect-[3/2] w-full rounded-3xl object-cover">
+    </section>
+    <div id="loading" role="status"></div>
+    <div id="content" hidden>
+      <dl class="grid grid-cols-3 divide-x divide-line rounded-2xl border border-line bg-card py-4 sm:py-5">
+        <div class="flex min-w-0 flex-col-reverse gap-1 px-3 sm:px-7">
+          <dt class="text-xs text-muted sm:text-sm">Laptops</dt>
+          <dd id="laptop-count" class="text-2xl font-bold tracking-tight sm:text-3xl"></dd>
+        </div>
+        <div class="flex min-w-0 flex-col-reverse gap-1 px-3 sm:px-7">
+          <dt class="text-xs text-muted sm:text-sm">Lowest price</dt>
+          <dd id="lowest-price" class="text-2xl font-bold tracking-tight sm:text-3xl"></dd>
+        </div>
+        <div class="flex min-w-0 flex-col-reverse gap-1 px-3 sm:px-7">
+          <dt class="text-xs text-muted sm:text-sm"><a class="hover:underline" href="favorites.html">Saved favorites</a></dt>
+          <dd id="favorite-count" class="text-2xl font-bold tracking-tight sm:text-3xl"></dd>
+        </div>
+      </dl>
+      <section class="mt-9 lg:mt-12" aria-labelledby="picks-heading">
+        <div class="mb-5 flex flex-wrap items-end justify-between gap-3">
+          <div><h2 class="section-title" id="picks-heading">Campus picks</h2>
+            <p class="mt-1 text-sm text-muted">Explore a budget laptop, an ultrabook and a gaming model.</p>
+          </div>
+          <a class="text-link text-sm" href="laptops.html">Full catalogue</a>
+        </div>
+        <div class="card-grid" id="picks"></div>
+      </section>
+    </div>
+  </main>
+  <footer id="site-footer" class="mt-auto border-t border-line bg-card"></footer>
+</body>
+</html>

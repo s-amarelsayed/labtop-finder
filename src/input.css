@@ -1,0 +1,77 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+@source "../*.html";
+@source "./js";
+
+@font-face {
+  font-family: "DM Sans";
+  src: url("../assets/dm-sans.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 100 1000;
+  font-display: swap;
+}
+
+@theme static {
+  --font-sans: "DM Sans", Arial, sans-serif;
+  --color-page: #f5f8f4;
+  --color-card: #ffffff;
+  --color-ink: #183327;
+  --color-muted: #4f6458;
+  --color-line: #cbd8cd;
+  --color-accent: #235c3b;
+  --color-strong: #17442a;
+  --color-on-accent: #ffffff;
+  --color-tint: #e2efe2;
+  --color-performance-page: #191c1b;
+  --color-performance-card: #242826;
+  --color-performance-ink: #f7f5ef;
+  --color-performance-muted: #bdc5bd;
+  --color-performance-line: #465048;
+  --color-performance-accent: #ffac75;
+  --color-performance-strong: #ffc296;
+  --color-performance-on-accent: #321d10;
+  --color-performance-tint: #40352b;
+}
+
+[data-theme="performance"] {
+  --color-page: var(--color-performance-page);
+  --color-card: var(--color-performance-card);
+  --color-ink: var(--color-performance-ink);
+  --color-muted: var(--color-performance-muted);
+  --color-line: var(--color-performance-line);
+  --color-accent: var(--color-performance-accent);
+  --color-strong: var(--color-performance-strong);
+  --color-on-accent: var(--color-performance-on-accent);
+  --color-tint: var(--color-performance-tint);
+  @apply scheme-dark;
+}
+
+@layer base {
+  body { @apply flex min-h-screen flex-col bg-page font-sans text-ink antialiased; }
+  main { @apply flex-1; }
+  button, select, input[type="checkbox"] { @apply cursor-pointer; }
+  :focus-visible { @apply outline-2 outline-offset-4 outline-accent; }
+}
+
+@layer components {
+  .page-width { @apply mx-auto w-full max-w-7xl px-4 sm:px-7 lg:px-12; }
+  .panel { @apply rounded-2xl border border-line bg-card; }
+  .page-title { @apply text-4xl font-bold tracking-tight sm:text-5xl; }
+  .section-title { @apply text-2xl font-bold tracking-tight sm:text-3xl; }
+  .card-grid { @apply grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3; }
+  .laptop-card {
+    @apply flex min-w-0 flex-col overflow-hidden rounded-2xl border border-line bg-card
+           transition hover:border-accent focus-within:border-accent motion-safe:hover:-translate-y-0.5;
+  }
+  .btn-action, .btn-secondary {
+    @apply inline-flex min-h-10 items-center justify-center gap-2 rounded-lg px-4 py-2
+           text-center text-sm font-semibold transition-colors focus-visible:ring-2 focus-visible:ring-accent;
+  }
+  .btn-action { @apply border border-transparent bg-accent text-on-accent hover:bg-strong; }
+  .btn-secondary { @apply border border-line bg-card text-ink hover:border-accent hover:bg-tint; }
+  .btn-secondary[aria-pressed="true"] { @apply border-accent bg-tint text-accent; }
+  .text-link { @apply font-semibold text-accent underline decoration-1 underline-offset-4 hover:text-strong; }
+  .field { @apply mt-1.5 block w-full rounded-lg border-line bg-card text-ink placeholder:text-muted focus:border-accent focus:ring-accent; }
+  .nav-link { @apply rounded-md px-3 py-2 text-sm font-medium text-muted transition-colors hover:bg-tint hover:text-ink; }
+  .nav-link[aria-current="page"] { @apply bg-tint font-bold text-accent; }
+}
